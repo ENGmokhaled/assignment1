@@ -1,12 +1,5 @@
-/* first assignment: using tools of dynamic array ,linked list and git
-part1 create structure & main function (student 1)
-part2 create linked list (student 2)
-part3 create dynamic array (student 3)*/
-
 #include <stdio.h>
 #include <stdlib.h>
-
-//////////////////////////////////////////////*part1:main function& structure*////////////////////////////////////
 
 //create a structure representing student information
     struct student_data
@@ -18,31 +11,6 @@ part3 create dynamic array (student 3)*/
    int student_birth_year;
    int student_lastyear_score;
 };
-
-
-//linked list
-void insertAtFirst();
-insertAtPosition();
-void printLinkedlist();
-void insertAtEnd();
-struct nodeType //create a structure representing the linked list node
-{
-	struct student_data s;
-	struct nodeType *next;
-};
-
-struct nodeType *Head,*Tail; //pointers to the first and last nodes in the list
-int length=0; //the length of the list initially equals zero
-
-//dynamic array
-int p=3;
-struct student_data* arr_student_data;
-void insert();
-void insertfirst();
-void insertlast();
-
-
-
 int main()
 {
     int n,type;
@@ -61,8 +29,9 @@ int main()
     if(type==1)
         {
         printf("dynamic array\n");
-
-    int i=0;
+         printf("%s","Enter the number of students at the beginning \n");
+    scanf("%d",&p);
+int i=0;
     arr_student_data = (struct student_data*)malloc(p*sizeof(struct student_data));
     for ( i = 0; i <= p-1 ; i++)
     {printf("\nEnter details of student %d\n\n", i);
@@ -79,7 +48,6 @@ int main()
         printf("Enter last year score: ");
         scanf("%d", &arr_student_data[i].student_lastyear_score);}
         printf("%s\t%s\t%s\t%s\t%s\t%s\n","Name","ID","Birthday","Birth month","Birth year","Last year score");
-
         for(int i = 0; i < p; i++ )
     {
         printf("%s\t%d\t%.2d\t%s\t%.2d\t%s\t%.4d\t%s\t%.d\n",
@@ -90,13 +58,18 @@ printf("%s","if you want to insert more student at any position enter 1\n if you
     int k;
 scanf("%d",&k);
 if(k==1)
-   insert(2);
-else if (k==2)
-    insertfirst();
-else if(k==3)
-   insertlast();
+   {int q;
+    printf("%s","enter the position to be insert in");
+    scanf("%d",&q);
+    insert(q);
+   }
 
-   printf("%s","if you want to insert more student enter 1\n");
+else if (k==2)
+    insert(0);
+else if(k==3)
+   insert(p);
+
+   printf("%s","if you want to insert more student enter 1 if not enter 0");
    int u;
 scanf("%d",&u);
 if(u==1)
@@ -180,3 +153,4 @@ if(u==1)
         }
     return 0;
 }
+
